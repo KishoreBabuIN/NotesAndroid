@@ -1,0 +1,2 @@
+include ':app', ':persistence'
+rootProject.name='NotesApp'

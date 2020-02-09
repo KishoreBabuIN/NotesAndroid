@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="@dimen/padding_around_item_note">
 
     <TextView
       android:id="@+id/tvTitle"
@@ -14,14 +14,16 @@
       android:layout_height="wrap_content"
       android:ellipsize="end"
       android:maxLines="1"
+      style="@style/Text.TitleLarge"
       android:textStyle="bold"
       tools:text="@tools:sample/lorem" />
 
     <TextView
-      android:id="@+id/tvContent"
+      android:id="@+id/tvBody"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ellipsize="end"
+      style="@style/Text.TitleMedium"
       android:maxLines="3"
       tools:text="@tools:sample/lorem/random" />
 
@@ -30,6 +32,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:maxLines="1"
+      style="@style/Text.TitleSmall"
       tools:text="@tools:sample/date/ddmmyy" />
   </LinearLayout>
 </layout>

@@ -47,7 +47,7 @@ class NotesListAdapter : RecyclerView.Adapter<NotesListAdapter.NoteItemViewHolde
       RecyclerView.ViewHolder(binding.root) {
     fun bindData(note: Note) {
       binding.run {
-        tvContent.text = note.body
+        tvBody.text = note.body
         tvTitle.text = note.title
         tvDate.text = note.date.toReadableDate()
       }

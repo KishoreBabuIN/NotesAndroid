@@ -11,7 +11,6 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:layout_constrainedHeight="true"
-      app:layout_constraintBottom_toTopOf="@id/tv_date"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0">
 
@@ -23,27 +22,30 @@
 
         <TextView
           android:id="@+id/tv_title"
+          style="@style/Text.TitleLarge"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          tools:text="Title" />
+          tools:text="@tools:sample/lorem" />
+
+        <TextView
+          android:id="@+id/tv_date"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingTop="4dp"
+          android:paddingBottom="4dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          tools:text="Created: Fri. Feb 7, 2020" />
 
         <TextView
           android:id="@+id/tv_content"
+          style="@style/Text.TitleMedium"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
-          tools:text="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit" />
+          tools:text="@tools:sample/lorem/random" />
       </LinearLayout>
     </ScrollView>
 
-    <TextView
-      android:id="@+id/tv_date"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:gravity="center"
-      android:padding="8dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      tools:text="created on 19/10/2020   20:10" />
 
     <ProgressBar
       android:id="@+id/progress_circular"

@@ -58,7 +58,7 @@ class NoteViewActivity : BaseActivity<ActivityNoteBinding>() {
 
   private fun loadData(note: Note) {
     binding.run {
-      tvDate.text = getString(R.string.template_created_at, note.date.toReadableDate())
+      tvDate.text = getString(R.string.template_created_at, note.date.toReadableDate(this.root.context))
       tvTitle.text = note.title
       tvContent.text = note.body
     }

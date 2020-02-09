@@ -1,17 +1,16 @@
 package com.kishorebabu.android.notes.util
 
+import android.content.Context
+import android.text.format.DateUtils
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.util.Calendar
 
-fun Long.toReadableDate(format: String = "EEE, MMM dd, yyyy"): String {
-  val calendar = Calendar.getInstance()
-  calendar.timeInMillis = this
-  val simpleDateFormat = SimpleDateFormat(format)
-  return simpleDateFormat.format(calendar.time)
+fun Long.toReadableDate(context: Context): String {
+  return DateUtils
+      .getRelativeDateTimeString(context, this, DateUtils.MINUTE_IN_MILLIS, DateUtils.WEEK_IN_MILLIS, DateUtils.FORMAT_ABBREV_ALL)
+      .toString()
 }
 
 fun RecyclerView.setVerticalDividerDecoration(@DrawableRes drawableRes: Int) {

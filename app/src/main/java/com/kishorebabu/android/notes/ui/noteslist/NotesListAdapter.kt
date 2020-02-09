@@ -49,7 +49,7 @@ class NotesListAdapter : RecyclerView.Adapter<NotesListAdapter.NoteItemViewHolde
       binding.run {
         tvBody.text = note.body
         tvTitle.text = note.title
-        tvDate.text = note.date.toReadableDate()
+        tvDate.text = note.date.toReadableDate(this.root.context)
       }
     }
   }

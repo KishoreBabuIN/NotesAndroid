@@ -4,50 +4,40 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <ScrollView
+    <androidx.appcompat.widget.AppCompatEditText
+      android:id="@+id/et_title"
+      style="@style/Text.TitleLarge"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constrainedHeight="true"
-      app:layout_constraintBottom_toTopOf="@+id/btn_save"
+      android:background="@null"
+      android:hint="@string/new_note_title_hint"
+      android:maxLength="100"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0">
+      app:layout_constraintTop_toTopOf="parent" />
 
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <androidx.appcompat.widget.AppCompatEditText
-          android:id="@+id/et_title"
-          style="@style/Text.TitleLarge"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:background="@null"
-          android:hint="@string/new_note_title_hint"
-          android:maxLength="100" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-          android:id="@+id/et_content"
-          style="@style/Text.TitleMedium"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="16dp"
-          android:background="@null"
-          android:hint="@string/new_note_body_hint" />
-
-      </LinearLayout>
-    </ScrollView>
+    <androidx.appcompat.widget.AppCompatEditText
+      android:id="@+id/et_content"
+      style="@style/Text.TitleMedium"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="16dp"
+      android:background="@null"
+      android:gravity="top|start"
+      android:hint="@string/new_note_body_hint"
+      android:scrollbars="vertical"
+      app:layout_constraintBottom_toTopOf="@id/btn_save"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/et_title" />
 
     <Button
       android:id="@+id/btn_save"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="8dp"
       android:background="@drawable/action_btn_drawable"
       android:enabled="false"
       android:text="@string/new_note_save"

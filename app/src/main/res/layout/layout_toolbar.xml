@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
-  <com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/appBar"
+  <data>
+
+    <variable
+      name="title"
+      type="String" />
+
+  </data>
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbarLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/white"
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp">
 
-    <androidx.appcompat.widget.Toolbar
-      android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:titleTextAppearance="@style/Text.TitleLarge" />
-  </com.google.android.material.appbar.AppBarLayout>
+      android:layout_height="match_parent"
+      android:animateLayoutChanges="true"
+      android:orientation="horizontal">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.TitleLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@{ title }"
+        android:textColor="@color/darkGrey"
+        app:layout_constraintBottom_toTopOf="@id/bottom_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/lorem" />
+
+      <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divider_size"
+        android:background="@color/dividerBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.appcompat.widget.Toolbar>
 </layout>

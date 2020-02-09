@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">NotesApp</string>
+  <string name="app_name">Notes</string>
   <string name="template_created_at">Created: %1$s</string>
   <string name="new_note_body_hint">Type Here...</string>
   <string name="new_note_title_hint">New Note</string>

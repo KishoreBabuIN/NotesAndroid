@@ -6,4 +6,5 @@
   <color name="dividerBackground">#DDDDDD</color>
   <color name="darkGrey">#2b2d2f</color>
   <color name="hintGrey">#a8a9ad</color>
+  <color name="white">#FFFFFF</color>
 </resources>

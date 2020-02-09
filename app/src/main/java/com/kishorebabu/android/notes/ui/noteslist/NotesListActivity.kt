@@ -12,7 +12,6 @@ import com.kishorebabu.android.notes.ui.newnote.NewNoteActivity
 import com.kishorebabu.android.notes.ui.note.NoteViewActivity
 import com.kishorebabu.android.notes.util.setVerticalDividerDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class NotesListActivity : BaseActivity<ActivityNotesListBinding>() {
 
@@ -30,6 +29,7 @@ class NotesListActivity : BaseActivity<ActivityNotesListBinding>() {
   }
 
   private fun initUI() {
+    binding.toolbar.title = getString(R.string.app_name)
     binding.rvNotes.apply {
       layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
       setVerticalDividerDecoration(R.drawable.divider_drawable)
@@ -47,7 +47,6 @@ class NotesListActivity : BaseActivity<ActivityNotesListBinding>() {
       startActivity(Intent(this@NotesListActivity, NewNoteActivity::class.java))
     }
     notesAdapter.onNoteClicked = { noteId ->
-      Timber.d("LOG Note Clicked: $noteId")
       startActivity(Intent(this, NoteViewActivity::class.java).apply {
         this.putExtra(NoteViewActivity.NOTE_ID, noteId)
       })

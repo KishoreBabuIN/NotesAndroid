@@ -25,6 +25,10 @@ class NotesListActivity : BaseActivity<ActivityNotesListBinding>() {
     super.onCreate(savedInstanceState)
     initUI()
     initListeners()
+  }
+
+  override fun onResume() {
+    super.onResume()
     notesListViewModel.getAllNotes()
   }
 

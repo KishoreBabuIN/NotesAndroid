@@ -11,6 +11,13 @@ Android app for taking notes. Built to demonstrate use of Koin 2.
 * Roboelectric
 * Junit
 
+### Screenshots
+![screenshot1](https://user-images.githubusercontent.com/1313194/74112383-3a2d3000-4bc2-11ea-9a66-d179c2aaaa30.png)
+
+![screenshot2](https://user-images.githubusercontent.com/1313194/74112388-3d282080-4bc2-11ea-942d-bcedb855c9d5.png)
+
+![screenshot3](https://user-images.githubusercontent.com/1313194/74112389-3e594d80-4bc2-11ea-8ca4-910374458b77.png)
+
 
 ### Prerequisites
 * Android API 29
@@ -26,7 +33,7 @@ Android app for taking notes. Built to demonstrate use of Koin 2.
 ./gradlew clean testDebug
 ```
 
-## License
+### License
 ```
 MIT License
 

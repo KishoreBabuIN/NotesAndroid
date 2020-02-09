@@ -4,6 +4,7 @@ import android.os.Build
 import com.kishorebabu.android.notes.usecase.FetchNoteByIdUseCase
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.test.inject
@@ -15,14 +16,13 @@ import org.robolectric.annotation.Config
 class FetchNoteByIdUseCaseTest : BaseUseCaseTest() {
 
   private val fetchNoteByIdUseCase: FetchNoteByIdUseCase by inject()
-  lateinit var noteIds: List<Long>
 
   @Test
   fun `can fetch note with valid note id`() {
     `add fake notes in database`()
     runBlocking {
       val note = fetchNoteByIdUseCase.perform(noteIds.first())
-      Assert.assertEquals(note?.id, noteIds.first())
+      assertEquals(note?.id, noteIds.first())
     }
   }
 
@@ -31,7 +31,7 @@ class FetchNoteByIdUseCaseTest : BaseUseCaseTest() {
     `add fake notes in database`()
     runBlocking {
       val note = fetchNoteByIdUseCase.perform(0)
-      Assert.assertNull(note)
+      assertNull(note)
     }
   }
 }

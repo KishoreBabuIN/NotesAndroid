@@ -17,6 +17,7 @@ import org.robolectric.RuntimeEnvironment
 
 open class BaseUseCaseTest : KoinTest {
   protected lateinit var notesDatabase: NotesDatabase
+  protected lateinit var noteIds: List<Long>
 
   @Before
   fun setup() {
@@ -51,7 +52,7 @@ open class BaseUseCaseTest : KoinTest {
   protected fun `add fake notes in database`(): Int {
     return runBlocking {
       val notes = FakeNoteData.notes
-      notesDatabase.noteDao()
+      noteIds = notesDatabase.noteDao()
           .addNotes(notes)
       notes.size
     }

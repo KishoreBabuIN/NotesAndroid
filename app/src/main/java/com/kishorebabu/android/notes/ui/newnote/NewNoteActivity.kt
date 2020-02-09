@@ -1,6 +1,7 @@
 package com.kishorebabu.android.notes.ui.newnote
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,9 +12,9 @@ import com.kishorebabu.android.notes.R.string
 import com.kishorebabu.android.notes.databinding.ActivityNewNoteBinding
 import com.kishorebabu.android.notes.ui.base.BaseActivity
 import com.kishorebabu.android.notes.ui.newnote.NewNoteViewModel.AddNoteState
+import com.kishorebabu.android.notes.ui.note.NoteViewActivity
 import com.kishorebabu.android.notes.util.DialogFactory
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class NewNoteActivity : BaseActivity<ActivityNewNoteBinding>() {
   override fun layoutRes() = R.layout.activity_new_note
@@ -71,7 +72,9 @@ class NewNoteActivity : BaseActivity<ActivityNewNoteBinding>() {
   private fun isUnsavedNote(): Boolean = binding.etContent.text?.isNotEmpty() == true || binding.etTitle.text?.isNotEmpty() == true
 
   private fun onNoteSaved(id: Long) {
-    Timber.d("LOG Note Saved: Is: #$id")
+    startActivity(Intent(this, NoteViewActivity::class.java).apply {
+      this.putExtra(NoteViewActivity.NOTE_ID, id)
+    })
     finish()
   }
 

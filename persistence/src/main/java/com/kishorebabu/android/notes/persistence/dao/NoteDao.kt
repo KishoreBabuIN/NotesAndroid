@@ -8,7 +8,7 @@ import com.kishorebabu.android.notes.persistence.model.Note
 
 @Dao
 interface NoteDao {
-  @Query("SELECT * FROM ${Note.NOTE}")
+  @Query("SELECT * FROM ${Note.NOTE} ORDER BY date DESC")
   suspend fun getAllNotes(): List<Note>
 
   @Query("SELECT * FROM ${Note.NOTE} WHERE id = :noteId")

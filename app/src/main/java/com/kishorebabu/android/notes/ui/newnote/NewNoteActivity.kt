@@ -1,14 +1,17 @@
 package com.kishorebabu.android.notes.ui.newnote
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.lifecycle.Observer
 import com.kishorebabu.android.notes.R
+import com.kishorebabu.android.notes.R.string
 import com.kishorebabu.android.notes.databinding.ActivityNewNoteBinding
 import com.kishorebabu.android.notes.ui.base.BaseActivity
 import com.kishorebabu.android.notes.ui.newnote.NewNoteViewModel.AddNoteState
+import com.kishorebabu.android.notes.util.DialogFactory
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -51,6 +54,22 @@ class NewNoteActivity : BaseActivity<ActivityNewNoteBinding>() {
     }
   }
 
+  override fun onBackPressed() = if (!isUnsavedNote()) {
+    super.onBackPressed()
+  } else {
+    DialogFactory.showConfirmDialog(
+        this,
+        getString(string.discard_note_title),
+        getString(string.discard_note_body),
+        getString(string.discard),
+        getString(string.cancel),
+        DialogInterface.OnClickListener { dialog, which -> finish() },
+        DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() }
+    )
+  }
+
+  private fun isUnsavedNote(): Boolean = binding.etContent.text?.isNotEmpty() == true || binding.etTitle.text?.isNotEmpty() == true
+
   private fun onNoteSaved(id: Long) {
     Timber.d("LOG Note Saved: Is: #$id")
     finish()
@@ -66,17 +85,14 @@ class NewNoteActivity : BaseActivity<ActivityNewNoteBinding>() {
       p1: Int,
       p2: Int,
       p3: Int
-    ) {
-    }
+    ) = Unit
 
     override fun onTextChanged(
       p0: CharSequence?,
       p1: Int,
       p2: Int,
       p3: Int
-    ) {
-    }
-
+    ) = Unit
   }
 
   private fun validateEmptyTexts() {

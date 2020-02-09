@@ -5,4 +5,8 @@
   <string name="new_note_title_hint">New Note</string>
   <string name="new_note_save">Save Note</string>
   <string name="no_notes_found">No Notes Found. :(</string>
+  <string name="discard_note_title">Discard Note?</string>
+  <string name="discard_note_body">You have a unsaved note. Discard?</string>
+  <string name="discard">Discard</string>
+  <string name="cancel">Cancel</string>
 </resources>

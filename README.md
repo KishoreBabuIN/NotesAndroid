@@ -1,4 +1,4 @@
-# Notes Android
+# Notes Android [![CircleCI](https://circleci.com/gh/barykaed/NotesAndroid.svg?style=svg)](https://circleci.com/gh/barykaed/NotesAndroid)
 
 ## About The Project
 Android app for taking notes. Built to demonstrate use of Koin 2.

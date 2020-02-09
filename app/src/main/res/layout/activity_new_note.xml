@@ -38,8 +38,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
           android:background="@null"
-          android:hint="@string/new_note_body_hint"
-          android:maxLength="100" />
+          android:hint="@string/new_note_body_hint" />
 
       </LinearLayout>
     </ScrollView>

@@ -28,6 +28,7 @@ class NewNoteActivity : BaseActivity<ActivityNewNoteBinding>() {
       etContent.addTextChangedListener(textWatcher)
     }
     initListeners()
+    binding.etTitle.requestFocus()
   }
 
   private fun initListeners() {

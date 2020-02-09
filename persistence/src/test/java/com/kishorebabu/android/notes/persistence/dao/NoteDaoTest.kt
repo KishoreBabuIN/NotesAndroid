@@ -4,6 +4,7 @@ import android.os.Build
 import com.kishorebabu.android.notes.persistence.util.NoteUtils
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -26,6 +27,16 @@ class NoteDaoTest : BaseDaoTest() {
       val notes = noteDao.getAllNotes()
 
       assertEquals(true, notes.first().id == listofIds.first())
+    }
+  }
+
+  @Test
+  fun `get note by id`() {
+    runBlocking {
+      val listofIds = noteDao.addNotes(fakeNoteData.notes)
+      val note = noteDao.getNoteForId(listofIds.first())
+      assertTrue(note != null)
+      assertTrue(note!!.id == listofIds.first())
     }
   }
 }
